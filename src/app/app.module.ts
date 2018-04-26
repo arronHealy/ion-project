@@ -4,16 +4,19 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { MapPage } from '../pages/map/map';
 import { AddNotePage } from '../pages/add-note/add-note';
 import { NoteServiceProvider } from '../providers/note-service/note-service';
 import { IonicStorageModule } from '@ionic/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewNotePage } from '../pages/view-note/view-note';
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
+import { ContactProvider } from '../providers/contact/contact';
+import { ContactsPage } from '../pages/contacts/contacts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,28 +24,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AddNotePage,
     ViewNotePage,
-    ListPage
+    MapPage,
+    ContactsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    MapPage,
     AddNotePage,
-    ViewNotePage
+    ViewNotePage,
+    ContactsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NoteServiceProvider
+    NoteServiceProvider,
+    ContactProvider
   ]
 })
 export class AppModule {}

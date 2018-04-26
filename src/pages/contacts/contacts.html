@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>contacts</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <ion-avatar item-left>
+        <img src="{{user.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>{{user.name.title}} {{user.name.first}}</h2>
+      <br>
+      <p>{{user.email}}</p>
+      <br>
+      <p>{{user.gender}}</p>
+      <br>
+      <ion-note>{{user.registered}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
