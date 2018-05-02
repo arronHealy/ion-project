@@ -9,6 +9,9 @@
 
 <ion-content padding>
 
+  <!--
+    display note to screen
+  -->
   <ion-card>
     <ion-card-content>
       <ion-card-title>
@@ -19,9 +22,8 @@
       <div>{{note.content}}</div>
     </ion-card-content>
   </ion-card>
-</ion-content>
-<ion-footer>
   <button ion-button color="danger" block (click)="deleteNote(note.createDate)">
-    Delete Note
-  </button>
-</ion-footer>
+      Delete Note
+    </button>
+</ion-content>
+

@@ -4,11 +4,59 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="addNote()">
+          <ion-icon name="add">
+          Add Note
+        </ion-icon>
+      </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+          Note/Task Manager App
+          </ion-card-title>
+          <hr>
+
+          <div>
+            <h2>
+              <br>
+              Welcome to the Note/Task manager application. 
+              <br><br>
+              Store whatever ideas you have in your head and come back to them later.
+              <br><br>
+              Once your done with your tasks delete to free up space.
+              <br>
+            </h2>
+          </div>
+
+          <hr>
+          
+          <div>
+            <h2>
+            <br>
+            You can use this application to help keep track of what your doing. 
+            <br><br>
+            If you need any directions to help you with any of your tasks check out the map feature to help you on your way.
+            <br>
+            <br>
+            Check out the contacts list to view users of this application.
+            <br>
+            </h2>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+
+      <!--
+        display notes as buttons with date created & title binded to go to view note page
+      -->
   <ion-list>
     <button ion-item *ngFor="let note of notes | async" (click)="getNote(note.createDate)">
         <span class="date">{{note.date}}</span>
@@ -16,5 +64,13 @@
     </button>
   </ion-list>
   
-    <button ion-button (click)="addNote()">Add Note</button>
   </ion-content>
+
+  <!--
+    footer to go to map page
+  -->
+  <ion-footer>
+    <button ion-button block (click)="goToMap()">
+      Go to Map
+    </button>
+  </ion-footer>
